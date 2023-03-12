@@ -1,0 +1,42 @@
+.card-inner {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+@media (min-width: 1024px) {
+    .card{
+        width: 100%;
+    }
+    .card-item {
+        max-width: 454px;
+        min-width: 454px;
+        height: 281px;
+    }
+    .card__image{
+        min-height: 100%;
+    }
+    .card__badge{
+        width: 100%;
+        min-height: 281px;
+    }
+    .card__title{
+        max-width:228px;
+        max-height: 129px;
+    }
+}
+.card-item {
+    max-width: 454px;
+    height: 281px;
+    margin-bottom: 34px;
+}
+
+.card {
+    display: flex;
+}
+
+.card__image {
+    max-width: 150px;
+    min-width: 150px;
+    min-height: 300px;
+    max-height: 300px;
+}

@@ -1,0 +1,16 @@
+.card-list {
+    display: flex;
+    justify-content: space-around;
+    max-width: 400px;
+    min-width: 400px;
+    padding: 19px 0 19px 0;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+@media (min-width: 1024px) {
+    .card-list {
+        max-width: 943px;
+        min-width: 943px;
+    }
+}
