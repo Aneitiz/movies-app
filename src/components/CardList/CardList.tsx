@@ -56,7 +56,7 @@ export default class CardList extends Component<CardListProps, {}> {
     if (moviesItems && !moviesItems.length) {
       return <React.Fragment>{OnUnfoundedMovie()}</React.Fragment>
     }
-    if (ratedPage && moviesItems && !moviesItems.length) {
+    if (ratedPage && moviesItems && moviesItems.length === 0) {
       return <React.Fragment>{noRatedMovies()}</React.Fragment>
     }
     if (error) {
