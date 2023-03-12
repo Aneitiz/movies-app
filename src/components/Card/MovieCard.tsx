@@ -56,7 +56,7 @@ export default class MovieCard extends Component<CardProps, { ratingValue: null 
         openNotification('Sorry, we cant save your score on this movie', true)
       })
       .then(() => {
-        openNotification('We·saved·your·score·on·this·movie,·you·can·check·it·on·Rated·page', false)
+        openNotification('We saved your score on this movie, you can check it on Rated page', false)
         this.setState({ ratingValue: value })
       })
   }
