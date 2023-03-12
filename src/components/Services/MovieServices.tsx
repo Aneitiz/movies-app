@@ -1,4 +1,4 @@
-import { transformData, transformRatedData } from "../../helper/helper";
+import { transformData, transformRatedData } from '../../helper/helper'
 
 const apiMovies = 'https://api.themoviedb.org/3/'
 const apiKey = 'd7089144e10b9bed5441f8e478ee7bbf'
@@ -22,7 +22,7 @@ export default class MovieServices {
     if (!request.ok) {
       throw new Error(`Tags getting troubles, ${request.status}`)
     }
-    return await request.json()
+    return request.json()
   }
 
   async setGuestSession() {
@@ -49,7 +49,7 @@ export default class MovieServices {
         body: JSON.stringify(body),
       }
     )
-    return await rateRequest.json()
+    return rateRequest.json()
   }
 
   async getRatedMovies(page: number) {
