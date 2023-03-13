@@ -30,7 +30,6 @@ const sliceText = (text: string) => {
   return cutText + '...'
 }
 export const transformData = (data: Data) => {
-  console.log(data)
   return {
     title: data.title,
     id: data.id,

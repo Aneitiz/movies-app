@@ -15,6 +15,7 @@
     "plugin:react/recommended",
     "prettier",
     "airbnb-typescript",
+    "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/errors",
@@ -78,12 +79,7 @@
       2,
       {
         "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
+          "builtin", "external", "internal", "parent", "sibling", "index", "object", "type"
         ],
         "newlines-between": "always"
       }
@@ -94,6 +90,7 @@
   "settings": {
     "import/resolver": {
       "node": {
+        "paths" : ["src"],
         "extensions": [
           ".js",
           ".jsx",
