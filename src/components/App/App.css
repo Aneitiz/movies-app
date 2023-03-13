@@ -102,38 +102,23 @@ legend {
 .app {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-right: 3%;
-    margin-left: 3% ;
     background: white;
 }
 
-.app-full-height{
-    height: 100%;
-}
-
 html{
-    height: 100%;
+    box-sizing: border-box;
 }
 
 body {
+    box-sizing: border-box;
     height: 100%;
 }
 #root{
     width: 100%;
     min-height: 100%;
     background: #E5E5E5;
-}
-
-.pagination-hidden{
-    visibility: hidden;
     overflow: hidden;
-}
-
-.pagination-visible{
-    visibility: visible;
-    overflow: visible;
 }
 
 .main{
@@ -142,4 +127,11 @@ body {
     align-items: center;
     width: 100%;
     height: auto;
+}
+
+@media(max-width: 1023px){
+    .app{
+        width: 100%;
+        margin: 0 auto;
+    }
 }

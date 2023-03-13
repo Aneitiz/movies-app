@@ -1,14 +1,9 @@
-.card-inner {
-    display: grid;
-    grid-template-columns: auto auto;
-}
-
 @media (min-width: 1024px) {
     .card{
         width: 100%;
     }
     .card-item {
-        max-width: 454px;
+        max-width: 1020px;
         min-width: 454px;
         height: 281px;
     }
@@ -26,7 +21,7 @@
 }
 .card-item {
     max-width: 454px;
-    height: 281px;
+    height: auto;
     margin-bottom: 34px;
 }
 
@@ -35,6 +30,7 @@
 }
 
 .card__image {
+    display: flex;
     max-width: 150px;
     min-width: 150px;
     min-height: 300px;

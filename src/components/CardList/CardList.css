@@ -1,16 +1,19 @@
 .card-list {
     display: flex;
     justify-content: space-around;
-    max-width: 400px;
-    min-width: 400px;
-    padding: 19px 0 19px 0;
+    max-width: 100%;
+    min-width: 320px;
     flex-wrap: wrap;
     gap: 35px;
+    margin-left: 18px;
+    margin-right: 5px;
 }
 
 @media (min-width: 1024px) {
     .card-list {
-        max-width: 943px;
+        max-width: 1024px;
+        justify-content: space-around;
         min-width: 943px;
+        margin-bottom: 20px;
     }
 }
