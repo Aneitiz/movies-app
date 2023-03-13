@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 
 import './App.css'
 import MovieServices from 'Services/MovieServices'
+import { TagProvider } from 'context/TagProvider/TagProvider'
 
 import TabBar from '../TabBar'
 import SearchPage from '../SearchPage'
-import { TagProvider } from 'context/TagProvider/TagProvider'
 import { TabNames } from '../../constants'
 import RatedPage from '../RatedPage'
 import { onErrorAlert } from '../UserMessages/UserMrssages'

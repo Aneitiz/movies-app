@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './RatedPage.css'
 import { Pagination } from 'antd'
 
-import MovieServices from '../../Services/MovieServices'
+import MovieServices from 'Services/MovieServices'
+
 import CardList from '../CardList'
 
 type MovieDataObject = {

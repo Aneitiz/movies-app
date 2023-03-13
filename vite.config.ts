@@ -10,7 +10,7 @@ export default defineConfig({
       components : '/src/components',
       Services : "/src/Services",
       img : "/src/assets/img",
-      context : "/src/context"
+      context : "/src/context",
     }
   }
 })

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './CardList.css'
 import { Spin } from 'antd'
 
-import MovieCard from '../Movie-Card'
+import MovieCard from '../MovieCard'
 import { OnUnfoundedMovie, noRatedMovies, onErrorAlert } from '../UserMessages/UserMrssages'
 
 interface CardListProps {
