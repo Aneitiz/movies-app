@@ -1,4 +1,4 @@
-import { transformData, transformRatedData } from '../../helper/helper'
+import { transformData, transformRatedData } from '../helper/helper'
 
 const apiMovies = 'https://api.themoviedb.org/3/'
 const apiKey = 'd7089144e10b9bed5441f8e478ee7bbf'

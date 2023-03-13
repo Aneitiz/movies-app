@@ -2,15 +2,25 @@ import React, { Component } from 'react'
 import { Offline, Online } from 'react-detect-offline'
 import { Pagination } from 'antd'
 
-import MovieServices from '../Services/MovieServices'
+import MovieServices from 'Services/MovieServices'
+
 import SearchPanel from '../SearchPanel'
 import CardList from '../CardList'
 import { onOffline } from '../UserMessages/UserMrssages'
 
-type MovieData = [] | null
+type MovieDataObject = {
+  id: number
+  title: string
+  description: string
+  releaseDate: string
+  posterPath: string
+  voteAverage: number
+  tagId: []
+  rating: number
+}
 
 interface SearchPageState {
-  movieData: MovieData
+  movieData: [] | MovieDataObject[]
   totalResults: number
   loading: boolean
   currentPage: number
@@ -20,7 +30,7 @@ interface SearchPageState {
 
 export default class SearchPage extends Component<{}, SearchPageState> {
   state = {
-    movieData: null,
+    movieData: [],
     totalResults: 0,
     loading: false,
     currentPage: 1,
@@ -109,15 +119,22 @@ export default class SearchPage extends Component<{}, SearchPageState> {
   }
 
   render() {
-    const { movieData, totalResults, currentPage, loading, error } = this.state
+    const { movieData, totalResults, currentPage, loading, error, query } = this.state
+    console.log(query)
+    let queryChecker = true
+    if (query.length === 0) {
+      queryChecker = false
+    }
     return (
       <React.Fragment>
         <Online>
           <React.Fragment>
             <SearchPanel onSearch={this.onSearch} />
             <main className="main">
-              <CardList moviesItems={movieData} loading={loading} error={error} />
+              <CardList moviesItems={movieData} loading={loading} error={error} queryChecker={queryChecker} />
               <Pagination
+                style={{ marginTop: 20 }}
+                className="pagination"
                 onChange={this.onPageChange}
                 total={totalResults}
                 pageSize={20}

@@ -2,11 +2,21 @@ import React, { Component } from 'react'
 import './RatedPage.css'
 import { Pagination } from 'antd'
 
-import MovieServices from '../Services/MovieServices'
+import MovieServices from '../../Services/MovieServices'
 import CardList from '../CardList'
 
+type MovieDataObject = {
+  id: number
+  title: string
+  description: string
+  releaseDate: string
+  posterPath: string
+  voteAverage: number
+  tagId: []
+  rating: number
+}
 interface RatedPageState {
-  ratedMovieData: any
+  ratedMovieData: [] | MovieDataObject[]
   error: null | boolean
   loading: boolean
   totalResults: null | number
@@ -74,8 +84,8 @@ export default class RatedPage extends Component<{}, RatedPageState> {
     const { currentPage } = this.state
     this.setState(() => {
       return {
-        ratedMovieData: null,
-        error: null,
+        ratedMovieData: [],
+        error: false,
         loading: false,
         totalResults: 0,
         currentPage: currentPage,
@@ -87,10 +97,12 @@ export default class RatedPage extends Component<{}, RatedPageState> {
 
   render() {
     const { ratedMovieData, loading, currentPage, totalResults, error, ratedPage } = this.state
+    const queryChecker = true
     return (
       <React.Fragment>
         <main className="main">
           <CardList
+            queryChecker={queryChecker}
             moviesItems={ratedMovieData}
             loading={loading}
             // @ts-ignore

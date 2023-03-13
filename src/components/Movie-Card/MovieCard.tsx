@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import './MovieCard.css'
 import { Typography, Card, Rate, Badge, Tag, Image, notification } from 'antd'
 import { CheckCircleOutlined } from '@ant-design/icons'
+import image from 'img/SuperHackerEasterEgg.jpg'  // eslint-disable-line
+
+import MovieServices from 'Services/MovieServices'
+import { TagConsumer } from 'context/TagProvider/TagProvider'
 
 import { ImageLoadingSpinner } from '../UserMessages/UserMrssages'
-import MovieServices from '../Services/MovieServices'
-import { TagConsumer } from '../../TagProvider/TagProvider'
 
 // @ts-ignore
-import image from './SuperHackerEasterEgg.jpg'
 
 interface CardProps {
   id: number
@@ -62,20 +63,28 @@ export default class MovieCard extends Component<CardProps, { ratingValue: null 
   }
 
   createTags = (tagIdsArray: [], tagNames: any) => {
-    const res = tagIdsArray.map((id: number) => {
-      const tag: any = tagNames.filter((item: any) => item.id === id).at(0)
-      return tag.name
-    })
+    try {
+      const res = tagIdsArray.map((id: number) => {
+        const tag: any = tagNames.filter((item: any) => item.id === id).at(0)
+        return tag.name
+      })
 
-    const tagList = res.map((item: string) => {
+      const tagList = res.map((item: string) => {
+        return (
+          <Tag key={Math.random() * 100000} className="movie-card__tag tag" color="purple">
+            {item}
+          </Tag>
+        )
+      })
+
+      return <React.Fragment>{tagList}</React.Fragment>
+    } catch (e) {
       return (
-        <Tag key={Math.random() * 100000} className="movie-card__tag tag" color="purple">
-          {item}
+        <Tag key={0} className="movie-card__tag tag" color="red">
+          No tags founded
         </Tag>
       )
-    })
-
-    return <React.Fragment>{tagList}</React.Fragment>
+    }
   }
 
   render() {
@@ -85,7 +94,7 @@ export default class MovieCard extends Component<CardProps, { ratingValue: null 
     let fixedVote = Number(voteAverage.toFixed(2))
     return (
       <li className="card-item">
-        <Badge className="card__badge" count={fixedVote} color={this.voteAverageColors(voteAverage)}>
+        <Badge offset={[-20, 11]} className="card__badge" count={fixedVote} color={this.voteAverageColors(voteAverage)}>
           <Card
             className="card"
             hoverable
