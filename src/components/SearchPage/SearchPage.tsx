@@ -120,7 +120,6 @@ export default class SearchPage extends Component<{}, SearchPageState> {
 
   render() {
     const { movieData, totalResults, currentPage, loading, error, query } = this.state
-    console.log(query)
     let queryChecker = true
     if (query.length === 0) {
       queryChecker = false

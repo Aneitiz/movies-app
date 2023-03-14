@@ -28,7 +28,6 @@ type CardListMovies = {
 export default class CardList extends Component<CardListProps, {}> {
   render() {
     let { moviesItems, loading, error, ratedPage, queryChecker } = this.props
-    console.log(queryChecker)
     if (!loading && !error && moviesItems && moviesItems.length !== 0 && queryChecker) {
       let tasks = moviesItems.map((movie: CardListMovies) => {
         const { id, title, description, releaseDate, posterPath, voteAverage, tagId, rating } = movie
